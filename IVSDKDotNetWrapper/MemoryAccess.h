@@ -44,8 +44,9 @@ namespace IVSDKDotNet
 		/// </summary>
 		/// <param name="addr1070">Relative address for GTA IV version 1070.</param>
 		/// <param name="addr1080">Relative address for GTA IV version 1080.</param>
+		/// <param name="addr12059">Relative address for GTA IV version 12059.</param>
 		/// <returns>The absolut address.</returns>
-		static uint32_t GetAbsoluteAddress(uint32_t addr1070, uint32_t addr1080);
+		static uint32_t GetAbsoluteAddress(uint32_t addr1070, uint32_t addr1080, uint32_t addr12059);
 		/// <summary>
 		/// Retrieves a memory address which has the base address added to it.
 		/// </summary>
@@ -53,8 +54,8 @@ namespace IVSDKDotNet
 		/// <returns>The absolut address.</returns>
 		static uint32_t GetAbsoluteAddress(uint32_t addr);
 
-		static uint32_t GetValue(uint32_t addr1070, uint32_t addr1080);
-		static void		SetValue(uint32_t newValue, uint32_t addr1070, uint32_t addr1080);
+		static uint32_t GetValue(uint32_t addr1070, uint32_t addr1080, uint32_t addr12059);
+		static void		SetValue(uint32_t newValue, uint32_t addr1070, uint32_t addr1080, uint32_t addr12059);
 
 		static uint32_t ReadMemory(UIntPtr addr, bool vp)
 		{
