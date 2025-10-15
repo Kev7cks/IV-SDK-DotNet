@@ -165,7 +165,7 @@ namespace AddressSetter
 
 	// Note that the base address is added here and 0x400000 is not subtracted, so rebase your .idb to 0x0 or subtract it yourself
 	template<typename T>
-	static inline T& GetRef(uint32_t addr1070, uint32_t addr1080)
+	static inline T& GetRef(uint32_t addr1070, uint32_t addr1080, uint32_t addr12059)
 	{
 		if (!bAddressesRead)
 			Init();
@@ -174,6 +174,7 @@ namespace AddressSetter
 		{
 			case plugin::VERSION_1080: return *reinterpret_cast<T*>(gBaseAddress + addr1080);
 			case plugin::VERSION_1070: return *reinterpret_cast<T*>(gBaseAddress + addr1070);
+			case plugin::VERSION_12059: return *reinterpret_cast<T*>(gBaseAddress + addr12059);
 		}
 
 		return *reinterpret_cast<T*>(nullptr);
@@ -194,7 +195,7 @@ namespace AddressSetter
 		return GetRef<T>(GetAddressFromConfig(section, key));
 	}
 
-	static inline uint32_t Get(uint32_t addr1070, uint32_t addr1080)
+	static inline uint32_t Get(uint32_t addr1070, uint32_t addr1080, uint32_t addr12059)
 	{
 		if (!bAddressesRead)
 			Init();
@@ -203,6 +204,7 @@ namespace AddressSetter
 		{
 			case plugin::VERSION_1080: return gBaseAddress + addr1080;
 			case plugin::VERSION_1070: return gBaseAddress + addr1070;
+			case plugin::VERSION_12059: return gBaseAddress + addr12059;
 		}
 
 		return 0;
